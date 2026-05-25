@@ -52,6 +52,12 @@ body {
     animation-delay: 1.5s;  /* ← change this to your desired delay */
     opacity: 0;           /* hidden before animation starts */
 }
+
+.location{
+  animation: riseUp 1s ease forwards;
+    animation-delay: 0.5s;  /* ← change this to your desired delay */
+    opacity: 0;
+}
  
     .countdown {
       display: grid;

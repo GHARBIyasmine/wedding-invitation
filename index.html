@@ -24,7 +24,7 @@
     <!-- Countdown overlaid on the video -->
     <div class="countdown-wrapper" style="
         position: absolute;
-        bottom: 8%;
+        bottom: 5%;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
@@ -62,7 +62,34 @@
 
 </div>
 
-<!-- <img src="bg.svg" alt="invite" style="width: 100%; height: auto;"> -->
+<div style="position: relative; display: block; width: 100%;">
+            <video autoplay muted playsinline style="display: block; width: 100%;">
+            <source src="assets/local.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            <div class="location" style="
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        aspect-ratio: 4 / 3;
+        border-radius: 12px;
+        overflow: hidden;
+    ">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m11!1m3!1d300!2d10.2220329!3d36.8305578!2m2!1f0!2f90!3m2!1i1024!2i768!4f75!3m3!1m2!1s0x12fd3511fcdb24ff%3A0x1391b04218cc8630!2sLa%20Perle%20du%20Lac!4v1779731711032"
+            width="100%"
+            height="100%"
+            style="border: 0; display: block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        </div>
+
 
     </div>
 
