@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #f8f5f2;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: #6e2c2c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+}
+
+.date {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+}
+
+/* SAVE THE DATE SECTION */
+.save-date {
+  /* background: #5a6b84; */
+  background-image: url(b.png);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.intro-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.date-block span {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+}
+
+.date-block h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  margin: 10px 0;
+}
+
+/* COUNTDOWN */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.countdown div span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.countdown div p {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* CALENDAR */
+.calendar-title {
+  font-family: 'Playfair Display', serif;
+  margin-top: 40px;
+}
+
+.calendar {
+  max-width: 300px;
+  margin: auto;
+}
+
+.days, .numbers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 10px;
+}
+
+.highlight {
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+/* STORY */
+.story {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* FOOTER */
+.footer {
+  background: #6e2c2c;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
