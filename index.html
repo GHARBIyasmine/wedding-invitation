@@ -4,76 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #502129;
-            color: #333;
-        }
-        .invitation {
-            max-width: 600px;
-            padding: 0.5rem;
-            border-radius: 16px;
-            background: #fff;
-            /* background-image: url(bg.svg); */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        h1 {
-            margin-top: 0;
-            color: #b77b65;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .details {
-            margin: 1.5rem 0;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="invitation">
-         <div style="position: relative; display: inline-block; width: 100%;">
-            <video autoplay muted playsinline width="100%">
-  <source src="assets/August.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
+         <div style="position: relative; display: block; width: 100%;">
+            <video autoplay muted playsinline style="display: block; width: 100%;">
+            <source src="assets/August.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </div>
+    <div style="position: relative; display: block; width: 100%;">
+    <video autoplay muted playsinline style="display: block; width: 100%;">
+        <source src="assets/calendar.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-      <!--   <video autoplay muted playsinline width="100%">
-  <source src="August2.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video> -->
-  <!-- Background SVG, exactly as you had it -->
-  <!-- <img src="mock2.svg" alt="invite" style="width: 100%; height: auto; display: block;"> -->
+    <!-- Countdown overlaid on the video -->
+    <div class="countdown-wrapper" style="
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    ">
+        <div class="countdown">
 
-  <!-- Text layered on top
-  <div style="position: absolute; top: 20%; left: 50%; transform: translateX(-50%);">
-    Your title here
-  </div>
+            <div class="unit">
+                <span class="number" id="days">00</span>
+                <span class="label">Jours</span>
+            </div>
 
-  <div style="position: absolute; top: 40%; left: 30%;">
-    Another line of text
-  </div> -->
+            <span class="colon">:</span>
+
+            <div class="unit">
+                <span class="number" id="hours">00</span>
+                <span class="label">Heures</span>
+            </div>
+
+            <span class="colon">:</span>
+
+            <div class="unit">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+
+            <span class="colon">:</span>
+
+            <div class="unit">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Secondes</span>
+            </div>
+
+        </div>
+    </div>
 
 </div>
-        <!-- <h1>You're Invited</h1>
-        <p>Join us for a celebration of love as we exchange vows and begin our new life together.</p>
-        <div class="details">
-            <p><strong>Date:</strong> June 21, 2026</p>
-            <p><strong>Time:</strong> 4:00 PM</p>
-            <p><strong>Location:</strong> Garden Venue, City</p>
-        </div>
-        <p>We look forward to sharing this special day with you.</p> -->
-        <!-- <img src="bg.svg" alt="invite" style="width: 100%; height: auto;"> -->
-                <!-- <img src="invite.svg" alt="invite" style="width: 100%; height: auto;"> -->
+
+<!-- <img src="bg.svg" alt="invite" style="width: 100%; height: auto;"> -->
 
     </div>
+
+    <script>
+  // ── Set your wedding date here ──────────────────────────────
+  const weddingDate = new Date('2026-08-16T18:00:00');
+  // ────────────────────────────────────────────────────────────
+ 
+  function pad(n) {
+    return String(n).padStart(2, '0');
+  }
+ 
+  function tick() {
+    const now  = new Date();
+    const diff = weddingDate - now;
+ 
+    if (diff <= 0) {
+      document.getElementById('days').textContent    = '00';
+      document.getElementById('hours').textContent   = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+ 
+    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+ 
+    document.getElementById('days').textContent    = pad(days);
+    document.getElementById('hours').textContent   = pad(hours);
+    document.getElementById('minutes').textContent = pad(minutes);
+    document.getElementById('seconds').textContent = pad(seconds);
+  }
+ 
+  tick();
+  setInterval(tick, 1000);
+</script>
 </body>
+
 </html>

@@ -1,107 +1,127 @@
 body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: #f8f5f2;
-  color: #333;
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #502129;
+            color: #333;
+        }
+        .invitation {
+            max-width: 600px;
+            padding: 0.5rem;
+            border-radius: 16px;
+            background: #fff;
+            /* background-image: url(bg.svg); */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+            color: #b77b65;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .details {
+            margin: 1.5rem 0;
+        }
+
+ .countdown-wrapper {
+      width: 100%;
+      padding: clamp(1.2rem, 4vw, 2.2rem) clamp(1rem, 5vw, 3rem);
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    @keyframes riseUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  background: #6e2c2c;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.countdown-wrapper {
+    animation: riseUp 1s ease forwards;
+    animation-delay: 1.5s;  /* ← change this to your desired delay */
+    opacity: 0;           /* hidden before animation starts */
 }
-
-.names {
-  font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-}
-
-.date {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2px;
-}
-
-/* SAVE THE DATE SECTION */
-.save-date {
-  /* background: #5a6b84; */
-  background-image: url(b.png);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.intro-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  margin-bottom: 40px;
-}
-
-.date-block span {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2px;
-}
-
-.date-block h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  margin: 10px 0;
-}
-
-/* COUNTDOWN */
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 40px 0;
-}
-
-.countdown div span {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.countdown div p {
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-}
-
-/* CALENDAR */
-.calendar-title {
-  font-family: 'Playfair Display', serif;
-  margin-top: 40px;
-}
-
-.calendar {
-  max-width: 300px;
-  margin: auto;
-}
-
-.days, .numbers {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  margin-top: 10px;
-}
-
-.highlight {
-  border: 1px solid white;
-  border-radius: 50%;
-}
-
-/* STORY */
-.story {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-/* FOOTER */
-.footer {
-  background: #6e2c2c;
-  color: white;
-  text-align: center;
-  padding: 40px;
-}
+ 
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+ 
+    .unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.4rem, 1.5vw, 0.8rem);
+    }
+ 
+ 
+ 
+    .number {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+ 
+      /* ── Prevents layout shift when digits change width ── */
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
+ 
+      /* Fixed width so single digits don't cause reflow */
+      min-width: 2.2ch;
+      text-align: center;
+    }
+ 
+    .label {
+      font-family: 'Lora', serif;
+      font-size: clamp(0.45rem, 1.5vw, 0.7rem);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+ 
+    /* Colon separators */
+    .sep {
+      display: flex;
+      align-items: flex-start;
+      padding-top: clamp(0.3rem, 1vw, 0.6rem);
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 8vw, 5rem);
+      color: var(--text);
+      line-height: 1;
+      /* pull colons out of the grid flow so they sit between units */
+      position: absolute;
+    }
+ 
+    /* Re-do layout to include colons inline */
+    .countdown {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+ 
+    .colon {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1;
+      padding: 0 clamp(0.1rem, 0.8vw, 0.5rem);
+      /* vertically align with numbers, offset label space below */
+      margin-bottom: clamp(1.2rem, 3vw, 2rem);
+      flex-shrink: 0;
+      user-select: none;
+    }
+ 
+    .unit { flex: 1; }
