@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="invitation">
+         <div style="position: relative; display: block; width: 100%;">
+            <video autoplay muted playsinline style="display: block; width: 100%;" poster="assets/August-poster.jpg">
+            <source src="assets/August.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </div>
+    <div style="position: relative; display: block; width: 100%;">
+    <video autoplay muted playsinline style="display: block; width: 100%;">
+        <source src="assets/calendar.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Countdown overlaid on the video -->
+    <div class="countdown-wrapper" style="
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    ">
+        <div class="countdown">
+
+            <div class="unit">
+                <span class="number" id="days">00</span>
+                <span class="label">Jours</span>
+            </div>
+
+            <span class="colon">:</span>
+
+            <div class="unit">
+                <span class="number" id="hours">00</span>
+                <span class="label">Heures</span>
+            </div>
+
+            <span class="colon">:</span>
+
+            <div class="unit">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+
+            <span class="colon">:</span>
+
+            <div class="unit">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Secondes</span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div style="position: relative; display: block; width: 100%;">
+            <video autoplay muted playsinline style="display: block; width: 100%;">
+            <source src="assets/local.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+
+            <div class="location" style="
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        aspect-ratio: 4 / 3;
+        border-radius: 12px;
+        overflow: hidden;
+    ">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m11!1m3!1d300!2d10.2220329!3d36.8305578!2m2!1f0!2f90!3m2!1i1024!2i768!4f75!3m3!1m2!1s0x12fd3511fcdb24ff%3A0x1391b04218cc8630!2sLa%20Perle%20du%20Lac!4v1779731711032"
+            width="100%"
+            height="100%"
+            style="border: 0; display: block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        </div>
+
+
+    </div>
+
+    <script>
+  // ── Set your wedding date here ──────────────────────────────
+  const weddingDate = new Date('2026-08-16T18:00:00');
+  // ────────────────────────────────────────────────────────────
+ 
+  function pad(n) {
+    return String(n).padStart(2, '0');
+  }
+ 
+  function tick() {
+    const now  = new Date();
+    const diff = weddingDate - now;
+ 
+    if (diff <= 0) {
+      document.getElementById('days').textContent    = '00';
+      document.getElementById('hours').textContent   = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+ 
+    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+ 
+    document.getElementById('days').textContent    = pad(days);
+    document.getElementById('hours').textContent   = pad(hours);
+    document.getElementById('minutes').textContent = pad(minutes);
+    document.getElementById('seconds').textContent = pad(seconds);
+  }
+ 
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+
+</html>
