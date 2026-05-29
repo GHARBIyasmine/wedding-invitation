@@ -36,23 +36,6 @@ body {
       color: #fff;
     }
 
-    @keyframes riseUp {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
-.countdown-wrapper {
-    animation: riseUp 1s ease forwards;
-    animation-delay: 1.5s;  /* ← change this to your desired delay */
-    opacity: 0;           /* hidden before animation starts */
-}
-
 .location{
   animation: riseUp 1s ease forwards;
     animation-delay: 0.5s;  /* ← change this to your desired delay */
